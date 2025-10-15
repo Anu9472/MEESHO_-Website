@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meshoo | Colorful E-Commerce</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Meshoo</div>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search products..." oninput="filterProducts()">
+    </div>
+    <div>
+      <button class="cart-btn" onclick="toggleCart()">🛒Cart <span id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <nav id="categories"></nav>
+
+  <main>
+    <div class="products" id="product-list"></div>
+  </main>
+
+  <div class="cart-panel" id="cart-panel">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <hr>
+    <p>Total: ₹<span id="total">0</span></p>
+    <button class="btn" onclick="checkout()">Checkout</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
