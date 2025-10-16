@@ -1,36 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meshoo | Colorful E-Commerce</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FixNow — Home Electric Repair Services</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">Meshoo</div>
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search products..." oninput="filterProducts()">
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">FN</div>
+        <div>
+          <h1>FixNow</h1>
+          <p class="lead">Trusted home electric appliance repair — book a technician in minutes</p>
+        </div>
+      </div>
+      <div>
+        <button class="btn" id="viewBookingsBtn">View My Bookings</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section>
+        <div class="card hero">
+          <h2>Electric appliance repair at your doorstep</h2>
+          <p>Washing machine, refrigerator, microwave, mixer, iron — certified technicians ready to help. Transparent pricing, on-time arrival, safe repairs.</p>
+
+          <div class="services" aria-hidden="true">
+            <div class="service">Washing Machines</div>
+            <div class="service">Refrigerators</div>
+            <div class="service">Microwaves &amp; Ovens</div>
+            <div class="service">Small Appliances</div>
+          </div>
+
+          <h3 style="margin-top:12px">Available technicians</h3>
+          <div class="tech-list" id="techList"></div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>How it works</h3>
+          <ol style="margin:0;padding-left:18px;color:var(--muted)">
+            <li>Choose a service and technician</li>
+            <li>Pick a convenient date &amp; time</li>
+            <li>Technician arrives, diagnosis &amp; repair</li>
+            <li>Pay after the job — cash or card</li>
+          </ol>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h3>Book a technician</h3>
+          <form id="bookingForm">
+            <label>Name</label>
+            <input type="text" id="customerName" placeholder="Your name" required />
+
+            <label>Phone</label>
+            <input type="tel" id="customerPhone" placeholder="e.g. 9876543210" required />
+
+            <label>Service</label>
+            <select id="serviceSelect">
+              <option value="Washing Machine">Washing Machine Repair</option>
+              <option value="Refrigerator">Refrigerator Repair</option>
+              <option value="Microwave">Microwave / Oven Repair</option>
+              <option value="Mixer">Mixer / Grinder Repair</option>
+              <option value="Iron">Iron Repair</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <label>Choose technician</label>
+            <select id="techSelect"></select>
+
+            <label>Date &amp; Time</label>
+            <input type="date" id="dateInput" required />
+            <input type="time" id="timeInput" required />
+
+            <label>Address</label>
+            <textarea id="addressInput" rows="2" placeholder="House / Flat number, street, area" required></textarea>
+
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <button type="submit" class="btn">Confirm Booking</button>
+              <button type="button" class="btn ghost" id="clearForm">Clear</button>
+            </div>
+
+            <div class="small">We will call to confirm your booking before arrival.</div>
+          </form>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Quick info</h3>
+          <p class="small">All technicians are vetted and trained. Estimates given after diagnosis. You pay only after the work is done.</p>
+          <hr style="border:none;border-top:1px solid #f1f5f9;margin:10px 0" />
+          <strong>Emergency?</strong>
+          <p class="small">Call us: <a href="tel:+911234567890">+91 12345 67890</a></p>
+        </div>
+      </aside>
+    </main>
+
+    <div id="bookingsModal" class="card" style="display:none;margin-top:18px">
+      <h3>Your bookings</h3>
+      <div id="bookingsContent"></div>
     </div>
-    <div>
-      <button class="cart-btn" onclick="toggleCart()">🛒Cart <span id="cart-count">0</span></button>
-    </div>
-  </header>
 
-  <nav id="categories"></nav>
-
-  <main>
-    <div class="products" id="product-list"></div>
-  </main>
-
-  <div class="cart-panel" id="cart-panel">
-    <h2>Your Cart</h2>
-    <div id="cart-items"></div>
-    <hr>
-    <p>Total: ₹<span id="total">0</span></p>
-    <button class="btn" onclick="checkout()">Checkout</button>
+    <footer>
+      © <span id="year"></span> FixNow — Reliable home appliance repair. Designed for learning &amp; demo.
+    </footer>
   </div>
 
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
+
+
